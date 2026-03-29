@@ -318,7 +318,13 @@ p {
     gap: 0.5rem;
   }
   .logo {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
+  }
+
+  /* General Button Adjustments */
+  .btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.95rem;
   }
 
   /* Form / Search Adjustments */
@@ -326,7 +332,9 @@ p {
     flex-direction: column !important;
   }
   .search-form .btn {
-    width: 100%;
+    width: auto;
+    align-self: center;
+    padding: 0.6rem 2rem;
   }
   
   /* Homestay Detail Adjustments */
