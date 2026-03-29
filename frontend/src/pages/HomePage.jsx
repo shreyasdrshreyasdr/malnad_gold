@@ -46,7 +46,7 @@ const HomePage = () => {
                     <form onSubmit={(e) => {
                         e.preventDefault();
                         window.open(`https://www.google.com/maps/search/tourist+attractions+near+${encodeURIComponent(e.target.elements.touristLocation.value)}`, '_blank');
-                    }} style={{ display: 'flex', gap: '0.5rem' }}>
+                    }} className="search-form">
                         <input 
                             name="touristLocation"
                             required
@@ -60,8 +60,8 @@ const HomePage = () => {
                     </form>
                 </div>
                 
-                <form onSubmit={handleSearch} style={{ display: 'flex', maxWidth: '600px', margin: '0 auto', gap: '0.5rem' }}>
-                    <div style={{ position: 'relative', flex: 1 }}>
+                <form onSubmit={handleSearch} className="search-form" style={{ maxWidth: '600px', margin: '0 auto' }}>
+                    <div style={{ position: 'relative', flex: 1, width: '100%' }}>
                         <Search size={20} style={{ position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--gray)' }}/>
                         <input 
                             className="input-field" 

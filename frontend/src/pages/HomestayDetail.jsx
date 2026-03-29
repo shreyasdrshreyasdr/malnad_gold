@@ -142,13 +142,13 @@ const HomestayDetail = () => {
                 </div>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '2rem' }}>
+            <div className="responsive-grid">
                 <div>
                     <h2 style={{ marginBottom: '1.5rem' }}>Available Rooms</h2>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                         {homestay.rooms.length === 0 && <p>No rooms currently available.</p>}
                         {homestay.rooms.map((room, idx) => (
-                            <div key={room.id} className="card" style={{ display: 'flex', overflow: 'hidden' }}>
+                            <div key={room.id} className="card room-card" style={{ display: 'flex', overflow: 'hidden' }}>
                                 <img src={room.photoUrl} alt="Room" style={{ width: '200px', objectFit: 'cover' }} />
                                 <div style={{ padding: '1.5rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
                                     <h3 style={{ fontSize: '1.25rem', marginBottom: '0.5rem' }}>Room {idx + 1} ({room.numberOfBeds} Beds)</h3>
@@ -222,7 +222,7 @@ const HomestayDetail = () => {
                                 <input disabled className="input-field" value={user.email} style={{ backgroundColor: 'var(--gray-light)' }} />
                             </div>
 
-                            <div style={{ display: 'flex', gap: '1rem', marginBottom: '1rem' }}>
+                            <div className="date-group">
                                 <div className="input-group" style={{ flex: 1, marginBottom: 0 }}>
                                     <label className="input-label">Check-in Date</label>
                                     <input required type="date" min={new Date().toISOString().split('T')[0]} className="input-field" value={bookingForm.checkInDate} onChange={e => setBookingForm({ ...bookingForm, checkInDate: e.target.value })} />
