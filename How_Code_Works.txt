@@ -1,0 +1,103 @@
+========================================================
+            HOW THE APPLICATION CODE WORKS              
+========================================================
+
+HIGH LEVEL WORKFLOW:
+1. The user interacts with the React Frontend layout (buttons, forms).
+2. The Frontend (using Axios or Fetch API) makes HTTP calls to the Spring Boot Backend.
+3. The Spring Boot Backend receives the signal in its Controllers.
+4. The Controller uses Repositories to interact with the MySQL Database.
+5. The Database returns data to the Backend, which passes it back to the Frontend as JSON data.
+6. Finally, the React Frontend re-renders the UI utilizing the new data.
+
+
+FILE-BY-FILE BREAKDOWN (ONLY NECESSARY INFORMATION):
+----------------------------------------------------
+
+FILE: backend/src/main/java/com/homestay/BackendApplication.java
+PURPOSE: Application Entry Point: The main startup file for the Spring Boot backend server.
+
+FILE: backend/src/main/java/com/homestay/config/WebConfig.java
+PURPOSE: Configuration Class: Sets up security rules, CORS, and web configurations to ensure the backend can communicate securely with the frontend.
+
+FILE: backend/src/main/java/com/homestay/controller/AuthController.java
+PURPOSE: REST Controller: Defines API routes (like GET, POST). It receives HTTP requests from the React frontend, processes the data, and sends back a JSON response.
+
+FILE: backend/src/main/java/com/homestay/controller/BookingController.java
+PURPOSE: REST Controller: Defines API routes (like GET, POST). It receives HTTP requests from the React frontend, processes the data, and sends back a JSON response.
+
+FILE: backend/src/main/java/com/homestay/controller/FileUploadController.java
+PURPOSE: REST Controller: Defines API routes (like GET, POST). It receives HTTP requests from the React frontend, processes the data, and sends back a JSON response.
+
+FILE: backend/src/main/java/com/homestay/controller/HomestayController.java
+PURPOSE: REST Controller: Defines API routes (like GET, POST). It receives HTTP requests from the React frontend, processes the data, and sends back a JSON response.
+
+FILE: backend/src/main/java/com/homestay/controller/ReviewController.java
+PURPOSE: REST Controller: Defines API routes (like GET, POST). It receives HTTP requests from the React frontend, processes the data, and sends back a JSON response.
+
+FILE: backend/src/main/java/com/homestay/models/Booking.java
+PURPOSE: Database Model / Entity: Maps the application's data objects (like Users, Bookings) to actual MySQL database tables using JPA.
+
+FILE: backend/src/main/java/com/homestay/models/Homestay.java
+PURPOSE: Database Model / Entity: Maps the application's data objects (like Users, Bookings) to actual MySQL database tables using JPA.
+
+FILE: backend/src/main/java/com/homestay/models/Review.java
+PURPOSE: Database Model / Entity: Maps the application's data objects (like Users, Bookings) to actual MySQL database tables using JPA.
+
+FILE: backend/src/main/java/com/homestay/models/Room.java
+PURPOSE: Database Model / Entity: Maps the application's data objects (like Users, Bookings) to actual MySQL database tables using JPA.
+
+FILE: backend/src/main/java/com/homestay/models/User.java
+PURPOSE: Database Model / Entity: Maps the application's data objects (like Users, Bookings) to actual MySQL database tables using JPA.
+
+FILE: backend/src/main/java/com/homestay/repository/BookingRepository.java
+PURPOSE: Repository Interface: Connects the backend code to the database, allowing us to read, write, and delete data without writing raw SQL queries.
+
+FILE: backend/src/main/java/com/homestay/repository/HomestayRepository.java
+PURPOSE: Repository Interface: Connects the backend code to the database, allowing us to read, write, and delete data without writing raw SQL queries.
+
+FILE: backend/src/main/java/com/homestay/repository/ReviewRepository.java
+PURPOSE: Repository Interface: Connects the backend code to the database, allowing us to read, write, and delete data without writing raw SQL queries.
+
+FILE: backend/src/main/java/com/homestay/repository/UserRepository.java
+PURPOSE: Repository Interface: Connects the backend code to the database, allowing us to read, write, and delete data without writing raw SQL queries.
+
+FILE: backend/src/main/resources/application.properties
+PURPOSE: Application Properties: Stores crucial environment settings such as Database connection strings, server ports, and file upload sizes.
+
+FILE: backend/src/test/java/com/homestay/BackendApplicationTests.java
+PURPOSE: Core utility or supporting file containing logic required for the app to function.
+
+FILE: frontend/src/App.jsx
+PURPOSE: Router Configuration: Manages the URL paths (routes). It decides which Page View gets shown depending on the web link the user visits.
+
+FILE: frontend/src/components/AuthModal.jsx
+PURPOSE: UI Component: A reusable piece of the frontend interface (eg. a navbar, a button, a modal) that handles its own local display logic.
+
+FILE: frontend/src/components/BackgroundSlideshow.jsx
+PURPOSE: UI Component: A reusable piece of the frontend interface (eg. a navbar, a button, a modal) that handles its own local display logic.
+
+FILE: frontend/src/components/Navbar.jsx
+PURPOSE: UI Component: A reusable piece of the frontend interface (eg. a navbar, a button, a modal) that handles its own local display logic.
+
+FILE: frontend/src/context/AuthContext.jsx
+PURPOSE: State Component (Context): Stores global data like the currently logged-in user so it can be accessed anywhere in the app without passing it down manually.
+
+FILE: frontend/src/index.css
+PURPOSE: Styling (CSS): Contains the visual design rules (colors, spacing, fonts) to make the application look visually appealing.
+
+FILE: frontend/src/main.jsx
+PURPOSE: Frontend Entry Point: Mounts the React application onto the web browser's DOM so the user can interact with it.
+
+FILE: frontend/src/pages/AdminPage.jsx
+PURPOSE: Page View: Represents a full screen or route in the application (like the Homepage or the Admin Dashboard). It fetches data from the backend APIs to display.
+
+FILE: frontend/src/pages/BookingsPage.jsx
+PURPOSE: Page View: Represents a full screen or route in the application (like the Homepage or the Admin Dashboard). It fetches data from the backend APIs to display.
+
+FILE: frontend/src/pages/HomePage.jsx
+PURPOSE: Page View: Represents a full screen or route in the application (like the Homepage or the Admin Dashboard). It fetches data from the backend APIs to display.
+
+FILE: frontend/src/pages/HomestayDetail.jsx
+PURPOSE: Page View: Represents a full screen or route in the application (like the Homepage or the Admin Dashboard). It fetches data from the backend APIs to display.
+
